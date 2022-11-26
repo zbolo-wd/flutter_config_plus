@@ -1,6 +1,5 @@
 package com.chaunguyen.flutter_config_plus
 
-import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import androidx.annotation.NonNull
@@ -10,8 +9,6 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
-import java.lang.IllegalArgumentException
 import java.lang.reflect.Field
 
 class FlutterConfigPlusPlugin(private val context: Context? = null): FlutterPlugin, MethodCallHandler {
@@ -29,14 +26,6 @@ class FlutterConfigPlusPlugin(private val context: Context? = null): FlutterPlug
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
     applicationContext = null
-  }
-
-  companion object {
-    @JvmStatic
-    fun registerWith(registrar: Registrar) {
-      val channel = MethodChannel(registrar.messenger(), "flutter_config_plus")
-      channel.setMethodCallHandler(FlutterConfigPlusPlugin(registrar.activity()))
-    }
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
