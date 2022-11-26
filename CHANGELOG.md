@@ -1,3 +1,5 @@
-## 0.0.1
+## 0.0.2
 
-* TODO: Describe initial release.
+* Update 1.7.10 kotlin version
+* Remove Registrar
+* Update document
