@@ -3,3 +3,6 @@
 * Update 1.7.10 kotlin version
 * Remove Registrar
 * Update document
+## 1.0.0
+
+* Fixing get "Null"

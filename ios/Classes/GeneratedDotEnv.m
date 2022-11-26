@@ -1,1 +1,0 @@
-  #define DOT_ENV @{ @"APP_NAME":@"Market Place Develop",@"APP_ANDROID_ID":@"com.vihat.marketplace.develop",@"APP_IOS_ID":@"com.vihat.base.develop",@"APP_VER_NAME":@"1.0.0",@"APP_BASE_URL":@"https://api-dev.vihat_develop.vn/api" };

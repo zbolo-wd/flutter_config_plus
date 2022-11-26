@@ -16,7 +16,7 @@ class FlutterConfigPlus {
 
   /// Returns a specific variable value give a [key]
   static dynamic get(String key) {
-    MethodChannelFlutterConfigPlus.get(key);
+    return MethodChannelFlutterConfigPlus.get(key);
   }
 
   /// returns all the current loaded variables;
