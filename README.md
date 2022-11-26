@@ -16,7 +16,7 @@ FABRIC_ID=abcdefgh
 load all environment varibles in `main.dart`
 
 ```dart
-import 'package:flutter_config_plus/flutter_config.dart';
+import 'package:flutter_config_plus/flutter_config_plus.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfigPlus
@@ -63,7 +63,7 @@ No additional setup is required for iOS, however, for advanced usage refer to th
 Whenever you need to use `FlutterConfigPlus` in your tests, simply use the method `loadValueForTesting`
 
 ```dart
-import 'package:flutter_config_plus/flutter_config.dart';
+import 'package:flutter_config_plus/flutter_config_plus.dart';
 
 void main() {
   FlutterConfigPlus.loadValueForTesting({'BASE_URL': 'https://www.mockurl.com'});
