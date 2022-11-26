@@ -6,13 +6,13 @@ Read variables declared in `.env` from your Obj-C classes like:
 
 ```objective-c
 // import header
-#import "FlutterConfigPlugin.h"
+#import "FlutterConfigPlusPlugin.h"
 
 // then read individual keys like:
-NSString *apiUrl = [FlutterConfigPlugin envFor:@"API_URL"];
+NSString *apiUrl = [FlutterConfigPlusPlugin envFor:@"API_URL"];
 
 // or just fetch the whole config
-NSDictionary *config = [FlutterConfigPlugin env];
+NSDictionary *config = [FlutterConfigPlusPlugin env];
 ```
 
 ### Availability in Build settings and Info.plist
@@ -44,7 +44,7 @@ Extra steps are required if you are reading env varibles from your `info.plist` 
    ```
 
    ```
-   ${SRCROOT}/.symlinks/plugins/flutter_config/ios/Classes/BuildXCConfig.rb ${SRCROOT}/ ${SRCROOT}/Flutter/tmp.xcconfig
+   ${SRCROOT}/.symlinks/plugins/flutter_config_plus/ios/Classes/BuildXCConfig.rb ${SRCROOT}/ ${SRCROOT}/Flutter/tmp.xcconfig
    ```
 
 4. Make sure you select `Runner` from the `Provide build settings from` dropdown
