@@ -1,16 +1,13 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_config_plus/flutter_config_plus_method_channel.dart';
+import 'package:flutter_config_plus/flutter_config_plus.dart';
 
 void main() {
-  MethodChannelFlutterConfigPlus platform = MethodChannelFlutterConfigPlus();
   const MethodChannel channel = MethodChannel('flutter_config_plus');
-
-  TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+      return {'FABRIC': 67};
     });
   });
 
@@ -18,7 +15,8 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await platform.getPlatformVersion(), '42');
+  test('get variable', () async {
+    await FlutterConfigPlus.loadEnvVariables();
+    expect(FlutterConfigPlus.get('FABRIC'), 67);
   });
 }

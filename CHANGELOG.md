@@ -6,3 +6,7 @@
 ## 1.0.0
 
 * Fixing get "Null"
+
+## 1.1.0
+
+* Refactor code

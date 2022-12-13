@@ -1,29 +1,22 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_config_plus/flutter_config_plus.dart';
-import 'package:flutter_config_plus/flutter_config_plus_platform_interface.dart';
-import 'package:flutter_config_plus/flutter_config_plus_method_channel.dart';
-import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-
-class MockFlutterConfigPlusPlatform
-    with MockPlatformInterfaceMixin
-    implements FlutterConfigPlusPlatform {
-
-  @override
-  Future<String?> getPlatformVersion() => Future.value('42');
-}
 
 void main() {
-  final FlutterConfigPlusPlatform initialPlatform = FlutterConfigPlusPlatform.instance;
+  const MethodChannel channel = MethodChannel('flutter_config_plus');
 
-  test('$MethodChannelFlutterConfigPlus is the default instance', () {
-    expect(initialPlatform, isInstanceOf<MethodChannelFlutterConfigPlus>());
+  setUp(() {
+    channel.setMockMethodCallHandler((MethodCall methodCall) async {
+      return {'FABRIC': 67};
+    });
   });
 
-  test('getPlatformVersion', () async {
-    /*FlutterConfigPlus flutterConfigPlusPlugin = FlutterConfigPlus();
-    MockFlutterConfigPlusPlatform fakePlatform = MockFlutterConfigPlusPlatform();
-    FlutterConfigPlusPlatform.instance = fakePlatform;
+  tearDown(() {
+    channel.setMockMethodCallHandler(null);
+  });
 
-    expect(await flutterConfigPlusPlugin.getPlatformVersion(), '42');*/
+  test('get variable', () async {
+    await FlutterConfigPlus.loadEnvVariables();
+    expect(FlutterConfigPlus.get('FABRIC'), 67);
   });
 }
