@@ -10,3 +10,6 @@
 ## 1.1.0
 
 * Refactor code
+## 1.1.1
+
+* Support android sdk version 21
